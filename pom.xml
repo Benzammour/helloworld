@@ -9,23 +9,4 @@
     <packaging>pom</packaging>
     <version>1.0</version>
 
-    <modules>
-        <module>httpserver</module>
-        <module>fitnesstracker</module>
-    </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>de.benzammour.helloworld</groupId>
-            <artifactId>httpserver</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>de.benzammour.helloworld</groupId>
-            <artifactId>fitnesstracker</artifactId>
-            <version>1.0</version>
-        </dependency>
-    </dependencies>
-
 </project>

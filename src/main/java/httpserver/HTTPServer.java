@@ -1,3 +1,5 @@
+package httpserver;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -22,7 +24,7 @@ public class HTTPServer {
 			// waits for connection of client
 			try(Socket clientSocket = server.accept()){
 
-				System.out.println("New client connected");
+				System.err.println("New client connected");
 
 				printToPage("Works", clientSocket);
 
@@ -39,13 +41,13 @@ public class HTTPServer {
 						clientSocket.getInputStream()));
 
 		// Output Stream
-		OutputStream os = clientSocket.getOutputStream();
+		OutputStream out = clientSocket.getOutputStream();
 
-		// No Idea what, but necessary for content to render on site
+		// No idea why yet, but necessary for content to render on site
 		in.readLine();
 
 		// write into Website
-		os.write(s.getBytes());
+		out.write(s.getBytes());
 	}
 
 }

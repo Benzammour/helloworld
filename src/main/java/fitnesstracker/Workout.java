@@ -1,3 +1,5 @@
+package fitnesstracker;
+
 public class Workout {
 	public void addWorkout(){
 

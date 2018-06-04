@@ -1,3 +1,5 @@
+package fitnesstracker;
+
 public class Nutrition {
 	public int calcCaloriesLeanBulk(int height, double weight, int sex, int activity){
 		return 0;
