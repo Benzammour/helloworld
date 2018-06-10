@@ -17,11 +17,17 @@ public class Client {
 
 	private static final int PORT = Server.getPORT();
 
-	private static final String HOST = "localhost";
-
+	private static final String HOST = "127.0.0.1";
 
 	public void connectToServer() throws IOException {
-		Socket socket = new Socket(HOST, PORT);
+
+		try {
+
+			Socket socket = new Socket(HOST, PORT);
+
+		} catch (IOException e) {
+			System.out.println("Cannot connect to server.");
+		}
 
 		System.out.println("Connected to Server...");
 	}

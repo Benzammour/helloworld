@@ -3,6 +3,7 @@ package httpserver;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashSet;
 
 /**
  * Socket Server for message passing.
@@ -20,7 +21,7 @@ public class Server {
 
 	private ServerSocket listener = new ServerSocket(PORT);
 
-	public void fetchClients(){
+	public void run(){
 		while (true){
 			// waits for connection of client
 			try(Socket clientSocket = listener.accept()){
@@ -38,6 +39,7 @@ public class Server {
 	public static int getPORT() {
 		return PORT;
 	}
+
 
 
 }
