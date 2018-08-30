@@ -1,6 +1,6 @@
 package leetcode;
 
-public class countingBits_338 {
+public class CountingBits_338 {
 
 	public int[] countBits(int num) {
 		int res[] = new int[num + 1];
