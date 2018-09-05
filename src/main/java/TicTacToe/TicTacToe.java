@@ -1,5 +1,8 @@
 package TicTacToe;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -90,23 +93,30 @@ public class TicTacToe {
 	}
 
 	public boolean duplicateInput(int[][] board, int[] coordinates) {
-		int c1 = coordinates[0];
-		int c2 = coordinates[1];
+		return board[coordinates[0]][coordinates[1]] != -1;
+	}
 
-		if (board[c1][c2] != -1)
+	public boolean initText() throws IOException {
+		System.out.println("Welcome to benzammour's version of the famous game \"TicTacToe\".");
+		System.out.println("The coordinate format is without any spaces and with one comma: x,y");
+		System.out.println("Press Enter to start the game.");
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+
+		if (s == null || s.length() == 0 || s.trim().equals("")) {
 			return true;
+		}
 
 		return false;
 	}
 
-	public void initText() {
-		System.out.println("Welcome to benzammour's version of the famous game \"TicTacToe\".");
-		System.out.println("Press Enter to start the game.");
-		//TODO: <Enter> check
-	}
+	public void init() throws IOException {
+		if (!initText()){
+			System.out.println("Exiting...");
+			System.exit(0);
+		}
 
-	public void init() {
-		initText();
 
 		int[][] board = new int[3][3];
 
