@@ -3,7 +3,7 @@
 filename='out'
 query='twitter'
 
-content=$(wget duckduckgo.com/?q=$query -q -O -)
+content=$(curl -L duckduckgo.com/?q=$query)
 
 echo $content
 
