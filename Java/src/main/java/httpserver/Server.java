@@ -3,43 +3,60 @@ package httpserver;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.Buffer;
+import java.util.Date;
 import java.util.HashSet;
 
-/**
- * Socket Server for message passing.
- *
- * @author	Samir Benzammour
- * */
+// Created by benzammour
 
 public class Server {
 
-	public Server() throws IOException {
-	}
-
 	private static final int PORT = 8080;
-
-
 	private ServerSocket listener = new ServerSocket(PORT);
 
-	public void run(){
-		while (true){
-			// waits for connection of client
-			try(Socket clientSocket = listener.accept()){
+    public Server() throws IOException {
 
-				System.err.println("New client connected");
+    }
 
-				//printToPage("Works", clientSocket);
+	public void run() throws IOException {
+		System.out.println("New server with port: " + PORT);
 
-			} catch (Exception e){
-				e.printStackTrace();
+		while (true) {
+		    try(Socket acceptionSocket = listener.accept()) {
+		        System.out.println("New connection established");
+
+		        // creates input buffer
+                BufferedReader in = new BufferedReader(new InputStreamReader(acceptionSocket.getInputStream()));
+                // analogously with an outstream
+				BufferedWriter out = new BufferedWriter(new OutputStreamWriter(acceptionSocket.getOutputStream()));
+
+                String line = in.readLine();
+                while (!line.isEmpty()) {
+                    System.out.println(line);
+                    line = in.readLine();
+                }
+
+                out.write("HTTP/1.0 200 OK\r\n");
+                out.write("Content-Type: text/html\r\n");
+                out.write("\r\n");
+                out.write("<title>HTTP - benzammour</title>");
+
+                printMessage(out, "benzammour");
+				printMessage(out, "Ayyy");
+
+				out.close();
+                in.close();
+                acceptionSocket.close();
+
+			} catch (Exception e) {
+		    	e.printStackTrace();
 			}
+
 		}
 	}
 
-	public static int getPORT() {
-		return PORT;
+	public void printMessage(BufferedWriter bw, String message) throws IOException {
+        bw.write("<h1>" + message + "</h1>");
 	}
-
-
 
 }
