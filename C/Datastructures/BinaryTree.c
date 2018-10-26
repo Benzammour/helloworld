@@ -1,24 +1,43 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-typedef struct Node {
+struct Node {
 	int data;
 	struct Node *left;
 	struct Node *right;
 } Node;
 
-Node* search(Node* root, int value) {
+struct Node* search(struct Node* root, int value) {
+	return NULL;
 }
 
-void insert(Node* root, int value) {
+void insert(struct Node** root, int value) {
+	
+	if (root == NULL) {
+		root = calloc(1, sizeof(struct Node));
+		
+		root->data = value;
+		root->left = NULL;
+		root->right = NULL;
+	} else if (value <= root->left->data) {
+		insert(root->left, value);
+	} else if (value > root->left->data) {
+		insert(root->right, value);
+	}
 }
 
-void print(Node* root) {
-	printf("New Tree.\n");
+void print(struct Node* root) {
+	if (root != NULL) {
+		printf("%d ", root->data);
+		print(root->left);
+		print(root->right);
+	}
 }
 
 int main() {
-
-	Node* root = malloc(sizeof(struct Node));
+	struct Node* root = calloc(1, sizeof(struct Node));
+	
+	insert(&root, 22);
 
 	print(root);
 
