@@ -36,6 +36,16 @@ void insert(struct Node** root, int value) {
 	}
 }
 
+void remove(struct Node** root, int value) {
+	if ((*root)->data == value) {
+		free(root);
+	} else if (value <= (*root)->data) {
+		remove(&((*root)->left), value);
+	} else {
+		remove(&((*root)->right), value);
+	}
+}
+
 void printInorder(struct Node* root) {
 	if (root != NULL) {
 		printInorder(root->left);
@@ -62,8 +72,8 @@ int main() {
 	insert(&root, 99);
 	insert(&root, 33);
 
-	/*printf("%d", isInTree(root, 33));*/
 	printInorder(root);
 
 	return 0;
 }
+g
