@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+url="https://video.fsmpi.rwth-aachen.de/15ws-afi"
+#url="https://video.fsmpi.rwth-aachen.de/14ss-kiss"
+
+a=$(curl $url | grep "/files/pub/[a-zA-Z0-9\-]*/[a-zA-Z0-9]*-[a-zA-Z0-9]*-[a-zA-Z0-9]*-720p.mp4")
+
+echo $a
