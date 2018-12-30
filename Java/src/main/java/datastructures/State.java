@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class State {
     String name = "";
     final boolean isFinal;
-    LinkedList<Transition> transitions = null;
+    LinkedList<Transition> transitions = new LinkedList<>();
 
     public State() {
         isFinal = false;
