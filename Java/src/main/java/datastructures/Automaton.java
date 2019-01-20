@@ -21,39 +21,15 @@ public class Automaton {
 
     @Override
     public String toString() {
-        return "Automaton{" +
-                    start.toString() +
+        return "Automaton {" +
+                    start.toString() + "\n" +
+                    //getReachableStates().toString() +
                 '}';
     }
 
     public boolean read(String word) {
         return start.read(word);
     }
-
-//    public LinkedList<State> getReachableStates() {
-//        LinkedList<State> visited = new LinkedList<>();
-//        LinkedList<State> res = new LinkedList<>();
-//
-//        int i = 1;
-//        State it = start;
-//
-//        do {
-//            visited.add(it);
-//
-//            for (Transition t : it.transitions) {
-//                if (!res.contains(t.destination)) {
-//                    res.add(t.destination);
-//                }
-//            }
-//
-//            if (!visited.contains(res.get(i-1))) {
-//                it = res.get(i);
-//                i++;
-//            }
-//        } while (visited.size() != res.size());
-//
-//        return res;
-//    }
 
     public LinkedList<State> getReachableStates() {
         LinkedList<State> oldStates = new LinkedList<>();

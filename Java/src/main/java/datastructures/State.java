@@ -45,15 +45,11 @@ public class State {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("State " + name + " {" +
-                    "isFinal: " + isFinal + ", ");
+        sb.append("State " + name + " {\n" +
+                    "\tisFinal: " + isFinal + "\n");
 
-        for (int i = 0; i < transitions.size(); i++) {
-            if (i != transitions.size()-1) {
-                sb.append(transitions.get(i).toString() + ",");
-            } else {
-                sb.append(transitions.get(i).toString());
-            }
+        for (Transition transition : transitions) {
+            sb.append(transition.toString());
         }
 
         return sb.toString();
@@ -69,14 +65,14 @@ public class State {
 
         try {
             read(word.charAt(0)).read(word.substring(1));
-        } catch (InvalidLetterException ile) {
+        } catch (InvalidTransitionException ile) {
             System.err.println(ile.toString());
         }
 
         return false;
     }
 
-    public State read(char c) throws InvalidLetterException {
+    private State read(char c) throws InvalidTransitionException {
         if (transitions != null) {
             for (Transition t : transitions) {
                 if (t.letter == c)
@@ -84,7 +80,7 @@ public class State {
             }
         }
 
-        throw new InvalidLetterException(c);
+        throw new InvalidTransitionException(c);
     }
 
 }

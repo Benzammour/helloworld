@@ -1,9 +1,9 @@
 package datastructures;
 
-public class InvalidLetterException extends Exception {
+public class InvalidTransitionException extends Exception {
     private char letter;
 
-    public InvalidLetterException(char l) {
+    public InvalidTransitionException(char l) {
         letter = l;
     }
 

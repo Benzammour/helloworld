@@ -24,6 +24,6 @@ public class Main {
 
 		Automaton dfa = new Automaton(q0);
 
-		System.out.println(dfa.getReachableStates().toString());
+		System.out.println(dfa.toString());
 	}
 }

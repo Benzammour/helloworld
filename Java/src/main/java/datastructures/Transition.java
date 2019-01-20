@@ -19,8 +19,8 @@ public class Transition {
 
     @Override
     public String toString() {
-        return "Transition {" +
+        return "\tTransition {" +
                 destination.name + ", " +
-                letter + "}";
+                letter + "}\n";
     }
 }
