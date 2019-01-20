@@ -36,7 +36,7 @@ void insert(struct Node** root, int value) {
 	}
 }
 
-void remove(struct Node** root, int value) {
+void remove(struct Node** root, int value) {
 	if ((*root)->data == value) {
 		free(root);
 	} else if (value <= (*root)->data) {
@@ -57,7 +57,7 @@ void printInorder(struct Node* root) {
 }
 
 struct Node* newNode(int value) {
-	struct Node* node = (struct Node*)calloc(1, sizeof(struct Node));
+	struct Node* node = (struct Node*) calloc(1, sizeof(struct Node));
 	node->data = value;
 	node->left = NULL;
 	node->right = NULL;
@@ -76,4 +76,3 @@ int main() {
 
 	return 0;
 }
-g
