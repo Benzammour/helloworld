@@ -64,3 +64,4 @@ Prerequisites
 *.out
 *.app
 
+target/
