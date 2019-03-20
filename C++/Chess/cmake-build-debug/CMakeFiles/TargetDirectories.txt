@@ -1,3 +1,0 @@
-/home/ilias/Git/Chess/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/ilias/Git/Chess/cmake-build-debug/CMakeFiles/chess.dir
-/home/ilias/Git/Chess/cmake-build-debug/CMakeFiles/edit_cache.dir
