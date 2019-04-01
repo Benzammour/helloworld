@@ -11,12 +11,13 @@ int main(int argc, char* argv[]) {
 	
 	char* ls = "ls";
 	extern char* const environ[];
-	char* const command[] = {"-a", "-l"};
+	char* const command[] = {"-a", "-la"};
+	/*char* const command[] = {"-al"};*/
 	
 	while (1) {
 		scanf("%s", cmd);
 
-		if (strncmp(cmd, ls, 2)) {
+		if (strncmp(cmd, ls, 2) == 0) {
 			execve("/bin/ls", command, environ);
 			break;
 		}
