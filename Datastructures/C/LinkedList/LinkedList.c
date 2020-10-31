@@ -40,7 +40,7 @@ void insert(int key, int data) {
 void deleteHead() {
 	Node* temp = head;
 	head = head->next;
-	free(head);
+	free(temp);
 }
 
 bool isEmpty() {
